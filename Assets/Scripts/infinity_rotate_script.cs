@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class infinity_rotate : MonoBehaviour
+public class infinity_rotate_script : MonoBehaviour
 {
     [SerializeField] private GameObject _Rotate_object;
     void Update()
