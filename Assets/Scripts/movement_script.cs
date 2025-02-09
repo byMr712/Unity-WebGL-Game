@@ -34,19 +34,19 @@ public class movement_script : MonoBehaviour
 
     void MovementEngine()
     {
-        //Обычное перемещение
+        //Normal movement
         _MoveVector = Vector3.zero;
         _MoveVector.x = Input.GetAxis("Horizontal") * _MoveSpeed;
         _MoveVector.z = Input.GetAxis("Vertical") * _MoveSpeed;
 
-        //Анимация при передвижениях
+        //Animation during movement
         if (_MoveVector.x != 0 | _MoveVector.z != 0)
             _Animator.SetBool("Move", true);
         else
             _Animator.SetBool("Move", false);
 
 
-        //Поворот при перемещении
+        //Rotation when moving
         if (Vector3.Angle(Vector3.forward, _MoveVector) > 1f || Vector3.Angle(Vector3.forward, _MoveVector) == 0)
         {
             Vector3 _VectorAngle = Vector3.RotateTowards(transform.forward, _MoveVector, _RotateSpeed, 0.0f);

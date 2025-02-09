@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    //Данный класс создан для инициализации объектов в скриптах, ведь управлять всем в одном месте удобнее
+    //This class is designed to initialize objects in scripts,
+    //because it is more convenient to manage everything in one place!
     [SerializeField] private movement_script movement_script;
 
 
