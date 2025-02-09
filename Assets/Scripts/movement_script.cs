@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(CharacterController))]
 public class movement_script : MonoBehaviour
 {
     [Header("Movement stats")]
-    [SerializeField] private float _MoveSpeed;
-    [SerializeField] private float _RotateSpeed;
-    [SerializeField] private float _JumpPower;
+    [SerializeField, Range(0, 100)] private float _MoveSpeed;
+    [SerializeField, Range(0, 100)] private float _RotateSpeed;
+    [SerializeField, Range(0, 100)] private float _JumpPower;
 
     [Header("Gravity stats")]
     [SerializeField] private float _GravityValue = 20f;
@@ -19,7 +20,7 @@ public class movement_script : MonoBehaviour
 
 
 
-    void Start()
+    public void Initialize()
     {
         _CharacterController = GetComponent<CharacterController>();
         _Animator = GetComponent<Animator>();
