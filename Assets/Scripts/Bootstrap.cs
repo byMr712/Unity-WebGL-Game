@@ -9,12 +9,14 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private RigidBodyMove _RigidBodyMoveScript;
     [SerializeField] private RigidBodyRotate _RigidBodyRotateScript;
     [SerializeField] private AnimationController _AnimationControllerScript;
+    [SerializeField] private Player _PlayerScript;
 
     private void Awake()
     {
         //_Movement_script.Initialize();
-        _RigidBodyMoveScript.Initialize();
-        _RigidBodyRotateScript.Initialize();
-        _AnimationControllerScript.Initialize();
+        //_RigidBodyMoveScript.Initialize();
+        //_RigidBodyRotateScript.Initialize();
+        //_AnimationControllerScript.Initialize();
+        //_PlayerScript.Initialize();
     }
 }
