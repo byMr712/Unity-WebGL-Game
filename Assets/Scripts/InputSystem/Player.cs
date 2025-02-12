@@ -4,14 +4,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputSystem _InputSystemScript;
-    [SerializeField, Range(0,1000)] private float _Speed;
-    [SerializeField, Range(0,10)] private float _JumpForce;
-    [SerializeField, Range(0,10)] private float _MouseSens;
+    [SerializeField] private float _Speed;
+    [SerializeField, Range(0, 10)] private float _JumpForce;
+    [SerializeField, Range(0, 10)] private float _MouseSens;
 
     private Rigidbody _RB;
     private Camera _Camera;
 
-    private float _XRotation = 0;
+    private float _XRotation;
     private float _YRotation = 0;
 
     public void Awake()
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private void OnMove()
     {
         _RB.AddRelativeForce(new Vector3(_InputSystemScript._Move.x, 0, _InputSystemScript._Move.y) * _Speed * Time.deltaTime);
+        
     }
 
     private void OnLook()
