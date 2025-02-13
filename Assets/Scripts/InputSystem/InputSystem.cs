@@ -6,6 +6,7 @@ public class InputSystem : MonoBehaviour
 {
     public UnityEvent _AttackEvent = new();
     public UnityEvent _JumpEvent = new();
+    
     //Mr712 - Create _AttackEvent and _JumpEvent, since when attacking/jumping, the bool value always becomes true, so for now the temporary solution is
     public Vector2 _Move;
     public Vector2 _Look;

@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private InputSystem _InputSystemScript;
-    [SerializeField] private float _Speed;
-    [SerializeField, Range(0, 10)] private float _JumpForce;
-    [SerializeField, Range(0, 10)] private float _MouseSens;
+    public InputSystem _InputSystemScript;
+    public float _Speed;
+    public float _JumpForce;
+    public float _MouseSens;
 
     private Rigidbody _RB;
     private Camera _Camera;
 
-    private float _XRotation;
+    private float _XRotation = 0;
     private float _YRotation = 0;
 
     public void Awake()
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
         _InputSystemScript._AttackEvent.AddListener(OnAttack);
         _InputSystemScript._JumpEvent.AddListener(OnJump);
+        
     }
 
     void Update()
@@ -38,13 +39,13 @@ public class Player : MonoBehaviour
 
     private void OnLook()
     {
-        _XRotation -= _InputSystemScript._Look.y;
-        _XRotation = Mathf.Clamp(_XRotation, -60f, 30f);
+        //_XRotation -= _InputSystemScript._Look.y;
+        //_XRotation = Mathf.Clamp(_XRotation, -60f, 30f);
 
-        _YRotation += _InputSystemScript._Look.x;
+        //_YRotation += _InputSystemScript._Look.x;
 
-        _Camera.transform.localRotation = Quaternion.Euler(_XRotation, 0, 0);
-        transform.rotation = Quaternion.Euler(0, _YRotation, 0);
+        
+        //transform.rotation = Quaternion.Euler(0, _YRotation, 0);
     }
 
     private void OnJump()
