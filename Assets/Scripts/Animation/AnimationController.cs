@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AnimationController : MonoBehaviour
@@ -6,19 +7,21 @@ public class AnimationController : MonoBehaviour
     public float _Speed = 0.0f;
     public float _Speed—oefficientRun = 2f;
     public float _Speed—oefficientIdle = 1f;
-    private int  _SpeedHash;
+    private float  _RotateAnimationTime;
     //public InputSystem _InputSystemScript;
     bool _IsIdleAnimationCurrentState;
 
     public void Initialize()
     {
         _Animator = GetComponent<Animator>();
-        _SpeedHash = Animator.StringToHash("Speed");
     }
 
     void FixedUpdate()
     {
-        bool _IsIdleAnimationState = _Animator.GetBool("_IsIdleAnimationCurrentState");
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            _Animator.SetBool("_IsIdleAnimationCurrentState", false);
+        else
+            _Animator.SetBool("_IsIdleAnimationCurrentState", true);
 
 
     }

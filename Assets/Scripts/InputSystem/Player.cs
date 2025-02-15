@@ -1,3 +1,5 @@
+using System.Collections;
+using System;
 using UnityEngine;
 
 
@@ -7,6 +9,8 @@ public class Player : MonoBehaviour
     public float _Speed;
     public float _JumpForce;
     public float _MouseSens;
+    int _MovePressedButton;
+    int _MoveRotationValue;
 
     private Rigidbody _RB;
     private Camera _Camera;
@@ -29,12 +33,41 @@ public class Player : MonoBehaviour
         OnMove();
         OnLook();
 
+        if (Input.GetKeyDown(KeyCode.W))
+            _MovePressedButton = 1;
+        if (Input.GetKeyDown(KeyCode.D))
+            _MovePressedButton = 2;
+        if (Input.GetKeyDown(KeyCode.A))
+            _MovePressedButton = 3;
+        if (Input.GetKeyDown(KeyCode.S))
+            _MovePressedButton = 4;
+        
+
     }
 
     private void OnMove()
     {
-        _RB.AddRelativeForce(new Vector3(_InputSystemScript._Move.x, 0, _InputSystemScript._Move.y) * _Speed * Time.deltaTime);
-        
+        _RB.AddForce(new Vector3(_InputSystemScript._Move.x, 0, _InputSystemScript._Move.y) * _Speed * Time.deltaTime);
+
+        switch (_MovePressedButton)
+        {
+        case 1:
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                break;
+        case 2:
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+                break;
+        case 3:
+                transform.rotation = Quaternion.Euler(0, 270, 0);
+                break;
+        case 4:
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                break;
+        default:
+               
+                break;
+        }
+
     }
 
     private void OnLook()
@@ -44,7 +77,7 @@ public class Player : MonoBehaviour
 
         //_YRotation += _InputSystemScript._Look.x;
 
-        
+
         //transform.rotation = Quaternion.Euler(0, _YRotation, 0);
     }
 
@@ -56,5 +89,12 @@ public class Player : MonoBehaviour
     private void OnAttack()
     {
         print("Attack");
+    }
+
+    IEnumerator WaitSeconds()
+    {
+        print("Корутина");
+        yield return new WaitForSeconds(60);
+
     }
 }

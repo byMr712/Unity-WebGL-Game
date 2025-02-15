@@ -329,8 +329,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 352509787}
-  - component: {fileID: 352509789}
-  - component: {fileID: 352509788}
   m_Layer: 0
   m_Name: CameraContainer
   m_TagString: Untagged
@@ -353,38 +351,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 22.496, y: 0, z: 0}
---- !u!114 &352509788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352509786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83f63b076ba7c44b959f73a39962ce9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Sensivity: 2
-  _Smoothness: 20
-  _TransformCharacter: {fileID: 1602317341}
-  _XRotation: 0
-  _YRotation: 0
---- !u!114 &352509789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352509786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30127f9451e620143a46e5dfbbaa1606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _OneCameraView: {fileID: 0}
-  _ThreeCameraView: {fileID: 0}
-  _CameraOneViewMode: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +904,6 @@ MonoBehaviour:
   _Speed: 0
   "_Speed\u0421oefficientRun": 2
   "_Speed\u0421oefficientIdle": 1
-  _InputSystemScript: {fileID: 1602317346}
 --- !u!1 &1662888295
 GameObject:
   m_ObjectHideFlags: 0
