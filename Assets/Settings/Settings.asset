@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a0ae4804de5c43a884a1fe9eeff48, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  generation:
+    minRooms: 5
+    maxRooms: 7
+    amountOfAdjacentRoomsToConnect: 3
+    minRoomWidth: 10
+    maxRoomWidth: 10
+    minRoomHeight: 15
+    maxRoomHeight: 15
+    minBossRoomWidth: 10
+    maxBossRoomWidth: 10
+    minBossRoomHeight: 15
+    maxBossRoomHeight: 15
+    areaWidth: 100
+    areaHeight: 100
+    minDistanceBetweenRooms: 1
+    walls:
+    - gameObject: {fileID: 4725644372996588504, guid: 5f075a57b27f28643a3ac8b15705d774, type: 3}
+      name: Wall
+    outerCorners:
+    - gameObject: {fileID: 696436432277967871, guid: c0c956922b14d3c41a8c9003d51e9ba2, type: 3}
+      name: OuterCorner
+    innerCorners:
+    - gameObject: {fileID: 2240145463788491059, guid: 87f1693f443ade843a8da737a87d56d1, type: 3}
+      name: InnerCorner
+    deleteInnerCorners: 0
+    uCorners:
+    - gameObject: {fileID: 3197583449942763538, guid: 06ac415821acc8a45affb0d1d9ce77c3, type: 3}
+      name: UCorner
+    squareCorners:
+    - gameObject: {fileID: 3746928169460061138, guid: f78390e4afac88f49808388357444f82, type: 3}
+      name: SquareCorner
+    doors: []
+    doorsDisplacements: []
+    flooring:
+    - gameObject: {fileID: 8761019777689142071, guid: e919f3d5db753784d9a7ea22ace1e4dd, type: 3}
+      name: Floor
+    player: {fileID: 1536924249124761616, guid: b0951b622be63db47b4c5ccb0c04fd0c, type: 3}
+    minEnemiesPerRoom: 1
+    maxEnemiesPerRoom: 4
+    enemies: []
+    bosses: []
+    breakables: []
+    staticObjects: []
+    wallObjects:
+    - gameObject: {fileID: 919132149155446097, guid: f01c7a35d9027be41948e526f593e846, type: 3}
+      name: lamp
+    wallObjConsequitiveDistance: 0
+    wallObjDisplacements:
+    - {x: 0, y: 0, z: 0}
+    cornerObjectsRate: 5
+    destroyablesRate: 5
+    middleObjects: []
+    middleObjectsRate: 6
