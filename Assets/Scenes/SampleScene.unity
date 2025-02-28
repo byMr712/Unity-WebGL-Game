@@ -961,9 +961,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u0436\u043C\u0438 \u043C\u044B\u0448\u043A\u043E\u0439, \u0447\u0442\u043E\u0431
-    \u043E\u043D\u0430 \u0438\u0441\u0447\u0435\u0437\u043B\u0430\n\nWASD - \u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435\n\nEnter
-    -  \u0421\u043A\u0440\u044B\u0442\u044C \u044D\u0442\u043E \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
+  m_text: "WASD - \u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435\n\nEnter -  \u0421\u043A\u0440\u044B\u0442\u044C
+    \u044D\u0442\u043E \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
