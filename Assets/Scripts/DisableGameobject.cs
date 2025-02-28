@@ -6,9 +6,12 @@ public class DisableGameobject : MonoBehaviour
     bool _Enabled = true;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && _Enabled)
+        if (Input.GetKey(KeyCode.Return) && _Enabled)
+        {
             _DisableGameobject.SetActive(false);
-            _Enabled = !_Enabled;
+            _Enabled = false;
+        }
+            
     }
 
 }
