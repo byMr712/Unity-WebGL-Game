@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     private Rigidbody _RB;
     private Camera _Camera;
 
-    private float _XRotation = 0;
-    private float _YRotation = 0;
+    //private float _XRotation = 0;
+    //private float _YRotation = 0;
 
     public void Awake()
     {
