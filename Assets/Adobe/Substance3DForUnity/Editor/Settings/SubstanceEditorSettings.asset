@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SubstanceEditorSettings
   m_EditorClassIdentifier: 
   _generateAllTexture: 0
-  _targetResolution: {x: 10, y: 10}
+  _targetResolution: {x: 8, y: 8}
   _searchSubfoldersOnly: 0
   _disableRuntimeOnly: 0

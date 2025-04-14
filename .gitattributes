@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
-* text=auto
+*.txt text eol=lf working-tree-encoding=windows-1251
+*.html text eol=lf working-tree-encoding=windows-1251
+*.css text eol=lf working-tree-encoding=windows-1251
+*.js  text eol=lf working-tree-encoding=windows-1251
+*.md text eol=lf working-tree-encoding=windows-1251
