@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public InputSystem _InputSystemScript;
     public float _Speed;
     public float _JumpForce;
+    public int _JumpUse;
     public float _MouseSens;
     int _MovePressedButton;
     int _MoveRotationValue;
@@ -33,13 +34,13 @@ public class Player : MonoBehaviour
         OnMove();
         OnLook();
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) & !Input.GetKeyDown(KeyCode.S))
             _MovePressedButton = 1;
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) & !Input.GetKeyDown(KeyCode.A))
             _MovePressedButton = 2;
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) & !Input.GetKeyDown(KeyCode.D))
             _MovePressedButton = 3;
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) & !Input.GetKeyDown(KeyCode.W))
             _MovePressedButton = 4;
         
 
@@ -83,7 +84,19 @@ public class Player : MonoBehaviour
 
     private void OnJump()
     {
-        _RB.AddForce(Vector3.up * _JumpForce, ForceMode.Impulse);
+        if (_JumpUse < 1)
+        {
+            //Vector3 jump = new Vector3(0.0f, _JumpForce, 0.0f);
+            _RB.AddForce(Vector3.up * _JumpForce, ForceMode.Impulse);
+            _JumpUse++;
+        }
+
+        //_RB.AddForce(Vector3.up * _JumpForce, ForceMode.Impulse);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        _JumpUse = 0;
     }
 
     private void OnAttack()
