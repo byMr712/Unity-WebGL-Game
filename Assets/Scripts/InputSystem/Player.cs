@@ -1,6 +1,7 @@
 using System.Collections;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class Player : MonoBehaviour
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     public float _MouseSens;
     int _MovePressedButton;
     int _MoveRotationValue;
+    bool _IsLestnica;
+    [SerializeField] private float rayLength;
 
     private Rigidbody _RB;
     private Camera _Camera;
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour
     {
         OnMove();
         OnLook();
+        IsLestnicaPlayer();
 
         if (Input.GetKeyDown(KeyCode.W) & !Input.GetKeyDown(KeyCode.S))
             _MovePressedButton = 1;
@@ -42,7 +46,20 @@ public class Player : MonoBehaviour
             _MovePressedButton = 3;
         if (Input.GetKeyDown(KeyCode.S) & !Input.GetKeyDown(KeyCode.W))
             _MovePressedButton = 4;
-        
+
+
+
+        if (_IsLestnica)
+        {
+            _RB.useGravity = false;
+            //_RB.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
+        else
+        {
+            _RB.useGravity = true;
+            //_RB.AddForce(moveDirection.normalized * moveSpeed * 10f * 0.2f, ForceMode.Force);
+        }
+
 
     }
 
@@ -109,5 +126,26 @@ public class Player : MonoBehaviour
         print("Корутина");
         yield return new WaitForSeconds(60);
 
+    }
+
+    public void IsLestnicaPlayer()
+    {
+        RaycastHit hit;
+        
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength))
+        {
+            if (hit.collider.tag == "Lestnica")
+            {
+                _IsLestnica = true;
+                Debug.Log("Lestnica");
+                //Debug.DrawRay(transform.position, Vector3.down, Color.green);
+            }
+            else
+            {
+                _IsLestnica = false;
+                Debug.Log("No Lestnica");
+            }
+        }
+        
     }
 }
