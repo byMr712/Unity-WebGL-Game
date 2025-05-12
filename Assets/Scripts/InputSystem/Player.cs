@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     {
         OnMove();
         OnLook();
-        IsLestnicaPlayer();
+        //IsLestnicaPlayer();
 
         if (Input.GetKeyDown(KeyCode.W) & !Input.GetKeyDown(KeyCode.S))
             _MovePressedButton = 1;
@@ -65,7 +65,8 @@ public class Player : MonoBehaviour
 
     private void OnMove()
     {
-        _RB.AddForce(new Vector3(_InputSystemScript._Move.x, 0, _InputSystemScript._Move.y) * _Speed * Time.deltaTime);
+        //_RB.AddForce(new Vector3(_InputSystemScript._Move.x, 0, _InputSystemScript._Move.y) * _Speed * Time.deltaTime);
+        _RB.transform.Translate(new Vector3(_InputSystemScript._Move.x, 0, _InputSystemScript._Move.y) * _Speed * Time.deltaTime, Space.World);
 
         switch (_MovePressedButton)
         {
@@ -128,24 +129,24 @@ public class Player : MonoBehaviour
 
     }
 
-    public void IsLestnicaPlayer()
-    {
-        RaycastHit hit;
+    //public void IsLestnicaPlayer()
+    //{
+    //    RaycastHit hit;
         
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength))
-        {
-            if (hit.collider.tag == "Lestnica")
-            {
-                _IsLestnica = true;
-                Debug.Log("Lestnica");
-                //Debug.DrawRay(transform.position, Vector3.down, Color.green);
-            }
-            else
-            {
-                _IsLestnica = false;
-                Debug.Log("No Lestnica");
-            }
-        }
+    //    if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength))
+    //    {
+    //        if (hit.collider.tag == "Lestnica")
+    //        {
+    //            _IsLestnica = true;
+    //            Debug.Log("Lestnica");
+    //            //Debug.DrawRay(transform.position, Vector3.down, Color.green);
+    //        }
+    //        else
+    //        {
+    //            _IsLestnica = false;
+    //            Debug.Log("No Lestnica");
+    //        }
+    //    }
         
-    }
+    //}
 }
