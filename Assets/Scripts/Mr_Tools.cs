@@ -1,9 +1,11 @@
 #if UNITY_EDITOR
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 
-public static class Mr_Tool
+public class Mr_Tool : EditorWindow
 {
+    bool _GzipActivate;
     private static void SetPlayMode(EnterPlayModeOptions options)
     {
         EditorSettings.enterPlayModeOptionsEnabled = true;
@@ -11,18 +13,30 @@ public static class Mr_Tool
     }
 
     [MenuItem("Mr712 Tools/1) ON FastPlayMode")]
-    public static void OnFastPlayMode()
+    public static void OnGZIPBuild()
     {
         SetPlayMode(EnterPlayModeOptions.DisableDomainReload | EnterPlayModeOptions.DisableSceneReload);
-
-        //Debug.Log("Быстрый режим Play Mode = ВКЛЮЧЁН");
     }
 
     [MenuItem("Mr712 Tools/2) OFF FastPlayMode")]
-    public static void OffFastPlayMode()
+    public static void OffGZIPBuild()
     {
         EditorSettings.enterPlayModeOptionsEnabled = false;
         Debug.LogWarning("Быстрый режим Play Mode = ВЫКЛЮЧЕН");
+    }
+
+    [MenuItem("Mr712 Tools/3) ON GZIP Build")]
+    public static void OnFastPlayMode()
+    {
+        PlayerSettings.WebGL.compressionFormat = (WebGLCompressionFormat)1;
+        Debug.LogWarning("Режим сжатия билда GZIP = ВКЛЮЧЁН");
+    }
+
+    [MenuItem("Mr712 Tools/4) OFF GZIP Build")]
+    public static void OffFastPlayMode()
+    {
+        PlayerSettings.WebGL.compressionFormat = (WebGLCompressionFormat)2;
+        Debug.LogWarning("Режим сжатия билда GZIP = ВЫКЛЮЧЕН");
     }
 
     //Проверка изменения состояния Play Mode

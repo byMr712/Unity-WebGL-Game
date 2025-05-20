@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 
 public class Player : MonoBehaviour
@@ -38,6 +39,15 @@ public class Player : MonoBehaviour
         OnLook();
         //IsLestnicaPlayer();
 
+        //if ((Input.GetKeyDown(KeyCode.W) & !Input.GetKeyDown(KeyCode.S)) || Input.GetKeyDown(KeyCode.JoystickButton12))
+        //    _MovePressedButton = 1;
+        //if ((Input.GetKeyDown(KeyCode.D) & !Input.GetKeyDown(KeyCode.A)) || Input.GetKeyDown(KeyCode.JoystickButton15))
+        //    _MovePressedButton = 2;
+        //if ((Input.GetKeyDown(KeyCode.A) & !Input.GetKeyDown(KeyCode.D)) || Input.GetKeyDown(KeyCode.JoystickButton14))
+        //    _MovePressedButton = 3;
+        //if ((Input.GetKeyDown(KeyCode.S) & !Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.JoystickButton13))
+        //    _MovePressedButton = 4;
+
         if (Input.GetKeyDown(KeyCode.W) & !Input.GetKeyDown(KeyCode.S))
             _MovePressedButton = 1;
         if (Input.GetKeyDown(KeyCode.D) & !Input.GetKeyDown(KeyCode.A))
@@ -46,6 +56,11 @@ public class Player : MonoBehaviour
             _MovePressedButton = 3;
         if (Input.GetKeyDown(KeyCode.S) & !Input.GetKeyDown(KeyCode.W))
             _MovePressedButton = 4;
+
+        //if (Input.GetKeyDown(KeyCode.JoystickButton13))
+        //{
+        //    Debug.Log("Gamepad");
+        //}
 
 
 
