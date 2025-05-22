@@ -16,22 +16,21 @@ public class Ai_Navigation : MonoBehaviour
         _Agent = GetComponent<NavMeshAgent>();
         _Agent.SetDestination(_Player.transform.position);
         WalkToNewPoint();
+        DisableWalkToPlayer();
 
     }
 
     void Update()
     {
-        if ((transform.position - _CurrentPoint.position).magnitude < 5f)
+        if ((transform.position - _CurrentPoint.position).magnitude < 1f)
         {
             WalkToNewPoint();
         }
-        Debug.Log(_CurrentState);
-    }
+        //Debug.Log(_CurrentState);
 
-    void WalkToNewPoint()
-    {
-        _CurrentPoint = _NavMeshPoints[Random.Range(0, _NavMeshPoints.Length)];
-        _Agent.SetDestination(_CurrentPoint.transform.position);
+
+
+
     }
 
     private void FixedUpdate()
@@ -40,23 +39,35 @@ public class Ai_Navigation : MonoBehaviour
         RaycastHit _Hit;
         if (_Cache_dot > 0.2f)
         {
+            Debug.Log("DOT выпущен");
             if (Physics.Raycast(transform.position, (_Player.transform.position - transform.position), out _Hit, 100f))
             {
-                if (_Hit.transform == _Player)
+                Debug.Log("Луч выпущен");
+                if (_Hit.transform.gameObject == _Player)
                 {
-                    _CurrentState = _EnumState._WalkToPlayer;
+                    Debug.Log("Detect main hero");
+
                     if (_CurrentState == _EnumState._Potrul)
                     {
                         Invoke("DisableWalkToPlayer", 5f);
                     }
+                    _CurrentState = _EnumState._WalkToPlayer;
+                    
                 }
+                //else
+                //{
+                //        Invoke("DisableWalkToPlayer", 5f);
+                //        WalkToNewPoint();
+                //}
+                ////if (_CurrentState == _EnumState._Potrul)
+                
             }
         }
+
         if (_CurrentState == _EnumState._WalkToPlayer)
         {
             _Agent.SetDestination(_Player.transform.position);
         }
-
     }
 
     void DisableWalkToPlayer()
@@ -64,14 +75,24 @@ public class Ai_Navigation : MonoBehaviour
         RaycastHit _Hit;
         if (Physics.Raycast(transform.position, (_Player.transform.position - transform.position), out _Hit, 100f))
         {
-            if (_Hit.transform != _Player)
+            Debug.Log("Тест");
+            if (_Hit.transform.gameObject != _Player)
             {
+                Debug.Log("Тест2");
                 _CurrentState = _EnumState._Potrul;
             }
             else
             {
                 Invoke("DisableWalkToPlayer", 5f);
+                Debug.Log("Перезапуск DisableWalkToPlayer");
+
             }
         }
+    }
+
+    void WalkToNewPoint()
+    {
+        _CurrentPoint = _NavMeshPoints[Random.Range(0, _NavMeshPoints.Length)];
+        _Agent.SetDestination(_CurrentPoint.transform.position);
     }
 }

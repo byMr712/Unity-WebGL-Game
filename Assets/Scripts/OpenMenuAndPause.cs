@@ -4,6 +4,11 @@ public class OpenMenuAndPause : MonoBehaviour
 {
     [SerializeField] private GameObject _Menu, _Game;
 
+    private void Awake()
+    {
+        Time.timeScale = 0f;
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
