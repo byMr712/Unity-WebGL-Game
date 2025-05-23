@@ -18,8 +18,7 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
-    [SerializeField]
-    private float health;
+    public float health;
     [SerializeField]
     private float maxHealth;
     [SerializeField]
@@ -39,6 +38,8 @@ public class PlayerStats : MonoBehaviour
     {
         health -= dmg;
         ClampHealth();
+        if (health < 0)
+            Destroy(gameObject);
     }
 
     public void AddHealth()
