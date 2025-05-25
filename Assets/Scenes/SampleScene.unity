@@ -1549,8 +1549,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Player: {fileID: 821888848}
-  _AiMonsterScript: {fileID: 378021990}
+  _PlayerStatsScript: {fileID: 0}
+  _HealthBarHUDTesterScript: {fileID: 0}
   _Animator: {fileID: 378021992}
+  colliderDamage: 2
+  coll: {fileID: 0}
 --- !u!1 &505327813
 GameObject:
   m_ObjectHideFlags: 0
