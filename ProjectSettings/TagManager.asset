@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Lestnica
+  - VragWeapons
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Prepytstvie
   - 
   - 
   - 
