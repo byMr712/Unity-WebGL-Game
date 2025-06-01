@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
+    public NavMeshAgent _NavMeshAgent;
+    public Animator _AnimatorAgent;
 
-    #region Sigleton
+    //Object in this region active in all scene
+    #region Sigleton 
     private static PlayerStats instance;
     public static PlayerStats Instance
     {
@@ -18,7 +24,7 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
-    public float health;
+    public float health = 3;
     [SerializeField]
     private float maxHealth;
     [SerializeField]
@@ -27,6 +33,11 @@ public class PlayerStats : MonoBehaviour
     public float Health { get { return health; } }
     public float MaxHealth { get { return maxHealth; } }
     public float MaxTotalHealth { get { return maxTotalHealth; } }
+
+    private void Start()
+    {
+
+    }
 
     public void Heal(float health)
     {
@@ -39,7 +50,7 @@ public class PlayerStats : MonoBehaviour
         health -= dmg;
         ClampHealth();
         if (health < 0)
-            Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     public void AddHealth()
@@ -52,6 +63,7 @@ public class PlayerStats : MonoBehaviour
         ClampHealth();
     }
 
+    //Reaload health UI
     void ClampHealth()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
@@ -59,4 +71,31 @@ public class PlayerStats : MonoBehaviour
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
     }
+
+    public IEnumerator Damage(float _DamageCount)
+    {
+
+        TakeDamage(_DamageCount);
+        Debug.Log("Урон получен");
+        _NavMeshAgent.isStopped = true;
+        _AnimatorAgent.SetTrigger("_Attack");
+
+        yield return new WaitForSeconds(0.5f);
+        _NavMeshAgent.isStopped = false;
+
+    }
+
+    //public IEnumerator HAddHealth()
+    //{
+
+    //    AddHealth();
+    //    Debug.Log("Сердце получено");
+    //    _NavMeshAgent.isStopped = true;
+    //    _AnimatorAgent.SetTrigger("_Attack");
+
+    //    yield return new WaitForSeconds(0.5f);
+    //    _NavMeshAgent.isStopped = false;
+
+    //}
+
 }
