@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,13 +6,10 @@ public class AI_Monster : MonoBehaviour
     private NavMeshAgent AI_Agent;
     private GameObject _Player;
     public GameObject _Panel_GaveOver, _VragWeapons;
-
     public Transform[] WayPoints;
     public int Current_Patch;
-
     public enum AI_State { Patrol, Stay, Chase};
     public AI_State AI_Enemy;
-
     private Animator _Animator;
     public bool _AttackDetect = false;
 
@@ -41,14 +36,10 @@ public class AI_Monster : MonoBehaviour
         }
 
         if (AI_Enemy == AI_State.Stay)
-        {
             AI_Agent.isStopped = true;
-        }
 
         if (AI_Enemy == AI_State.Chase)
-        {
             AI_Agent.SetDestination(_Player.transform.position);
-        }
 
         float Dist_Player = Vector3.Distance(_Player.transform.position, gameObject.transform.position);
         float Dist_Weapon_To_Player = Vector3.Distance(_Player.transform.position, _VragWeapons.gameObject.transform.position);
@@ -58,25 +49,11 @@ public class AI_Monster : MonoBehaviour
             {
                 _Animator.SetTrigger("_Attack");
                 _Animator.SetTrigger("_Run_Warrior");
-                //Debug.Log("Есть пробитие без проверки");
-                //if (Dist_Weapon_To_Player < 1)
-                //{
-                //    Debug.Log("Есть пробитие");
-                //}
                 _AttackDetect = false;
             }
         }
 
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("Объект вошел в зону.");
-    //}
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    print("Collision detected");
-    //    print(collision.gameObject);
-    //}
 }
+
+

@@ -11,14 +11,13 @@ public class OpenMenuAndPause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Tab))
             OpenMenuAndPauseGame();
     }
 
     public void OpenMenuAndPauseGame()
     {
         _Menu.SetActive(true);
-        //_Game.SetActive(false);
         Time.timeScale = 0f;
     }
 

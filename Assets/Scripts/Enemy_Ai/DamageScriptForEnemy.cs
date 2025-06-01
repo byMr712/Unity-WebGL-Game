@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-//Script add to weapon
 
 public class DamageScriptForEnemy : MonoBehaviour
 {
     public float _DamageCount = 0.25f;
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -17,3 +12,4 @@ public class DamageScriptForEnemy : MonoBehaviour
         }
     }
 }
+

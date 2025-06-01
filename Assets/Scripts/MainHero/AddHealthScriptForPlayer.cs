@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-//Script add to weapon
 
 public class AddHealthScriptForPlayer : MonoBehaviour
 {
@@ -16,3 +12,5 @@ public class AddHealthScriptForPlayer : MonoBehaviour
         }
     }
 }
+
+

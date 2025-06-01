@@ -4601,7 +4601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.57600003, y: 0.029703705}
   m_AnchorMax: {x: 0.91, y: 0.23933336}
-  m_AnchoredPosition: {x: 443.30045, y: -357.1728}
+  m_AnchoredPosition: {x: 443.3008, y: -357.1728}
   m_SizeDelta: {x: 965.88, y: 479.43707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &809705627
@@ -4660,9 +4660,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Animator: {fileID: 821888855}
-  _Speed: 0
-  "_Speed\u0421oefficientRun": 2
-  "_Speed\u0421oefficientIdle": 1
 --- !u!114 &821888850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4781,8 +4778,6 @@ MonoBehaviour:
   _Speed: 4
   _JumpForce: 30
   _JumpUse: 0
-  _MouseSens: 5
-  rayLength: 100
 --- !u!95 &821888855
 Animator:
   serializedVersion: 7
@@ -11457,19 +11452,19 @@ PrefabInstance:
       addedObject: {fileID: 821888855}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 821888854}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 821888853}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 821888852}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 821888850}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 821888851}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 821888850}
+      addedObject: {fileID: 821888854}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 821888853}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 244e4f97da0507641bc4b408d4c338be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 821888857}
@@ -15497,7 +15492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.060562503, y: 0.6593704}
   m_AnchorMax: {x: 0.29764587, y: 0.7946667}
-  m_AnchoredPosition: {x: -583.9998, y: 212.97989}
+  m_AnchoredPosition: {x: -583.9991, y: 212.97989}
   m_SizeDelta: {x: 176.49173, y: 58.590363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922686127
